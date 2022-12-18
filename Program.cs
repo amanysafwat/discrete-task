@@ -5,62 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
-    public static class Program
+using System;
+public class Program
 {
-
-
-
-
-
-    public static void Main(string[] args)
+    public static void Main()
     {
+        int n, i, sum;
+        int n1, n2;
 
-
-        int n1, n2, i, j, flag;
-
-
-        Console.Write(" n1 = ");
-
-
-        n1 = int.Parse(Console.ReadLine());
-
-
-        Console.Write(" n2 = ");
-
-
-        n2 = int.Parse(Console.ReadLine());
-
-
-        Console.WriteLine("\nPrime numbers between " +
-                        "{0} and {1} are: ", n1, n2);
-
-
-        for (i = n1; i <= n2; i++)
+        Console.Write("n1 = ");
+        n1 = Convert.ToInt32(Console.ReadLine());
+        Console.Write("n2 = ");
+        n2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("The Perfect numbers within the given range : ");
+        for (n = n1; n <= n2; n++)
         {
-
-
-            if (i == 1 || i == 0)
-                continue;
-
-
-            flag = 1;
-
-            for (j = 2; j <= i / 2; ++j)
+            i = 1;
+            sum = 0;
+            while (i < n)
             {
-                if (i % j == 0)
-                {
-                    flag = 0;
-                    break;
-                }
+                if (n % i == 0)
+                    sum = sum + i;
+                i++;
             }
-
-
-            if (flag == 1)
-                Console.WriteLine("\t" + i);
+            if (sum == n)
+                Console.WriteLine("\t" + "{0} ", n);
         }
-
+        Console.Write("\n");
         Console.ReadLine();
     }
 }
-
